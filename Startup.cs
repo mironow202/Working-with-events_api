@@ -11,6 +11,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Working_with_events_api.Domain;
+using Working_with_events_api.Repositories;
 
 namespace Working_with_events_api
 {
@@ -25,7 +27,6 @@ namespace Working_with_events_api
 
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddTransient<IProductRepository, ProductRepository>();
 
             services.AddControllers();

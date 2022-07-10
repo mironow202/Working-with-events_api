@@ -8,7 +8,7 @@ namespace Working_with_events_api.Repositories
 {
     public interface IProductRepository : IRepository<Event>
     {
-        Task<Event> GetByParameter(object obj);
+        Task<Event> GetBySpiker(object obj);
 
         Task InsertSomeValues(IEnumerable<Event> products);
     }
