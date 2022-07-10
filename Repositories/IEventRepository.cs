@@ -6,7 +6,7 @@ using Working_with_events_api.Domain;
 
 namespace Working_with_events_api.Repositories
 {
-    public interface IProductRepository : IRepository<Event>
+    public interface IEventRepository : IRepository<Event>
     {
         Task<Event> GetBySpiker(object obj);
 
