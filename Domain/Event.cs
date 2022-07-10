@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Working_with_events_api.Domain
+﻿namespace Working_with_events_api.Domain
 {
     public class Event
     {

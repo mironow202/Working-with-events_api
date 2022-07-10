@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Working_with_events_api.Domain;
 using Working_with_events_api.Repositories;
@@ -12,19 +11,19 @@ namespace Working_with_events_api.Controllers
     [Route("api/[controller]")]
     public class HttpPostController : Controller
     {
-        private readonly IEventRepository _productRepository;
+        private readonly IEventRepository _eventRepository;
 
         public HttpPostController(IEventRepository productRepository)
         {
-            _productRepository = productRepository;
+            _eventRepository = productRepository;
         }
 
         [HttpPost("create-event")]
-        public async Task<IActionResult> CreateProduct([FromBody] Event evnt)
+        public async Task<IActionResult> CreateEvent([FromBody] Event evnt)
         {
             try
             {
-                await _productRepository.Insert(evnt);
+                await _eventRepository.Insert(evnt);
                 return Ok($"Объект - {evnt.Theme} добавился в БД");
             }
             catch (Exception ex)
@@ -33,12 +32,12 @@ namespace Working_with_events_api.Controllers
             }
         }
 
-        [HttpPost("create-event")]
-        public async Task<IActionResult> CreateProducts([FromBody] IEnumerable<Event> evnt)
+        [HttpPost("create-events")]
+        public async Task<IActionResult> CreateEvents([FromBody] IEnumerable<Event> evnt)
         {
             try
             {
-                await _productRepository.InsertSomeValues(evnt);
+                await _eventRepository.InsertSomeValues(evnt);
                 return Ok($"Объекты добавились в БД");
             }
             catch (Exception ex)
@@ -58,7 +57,7 @@ namespace Working_with_events_api.Controllers
                     Description = description,
                 };
 
-                await _productRepository.Insert(evnt);
+                await _eventRepository.Insert(evnt);
                 return Ok($"Объект - {evnt.Spiker} добавился в БД");
             }
             catch (Exception ex)
